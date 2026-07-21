@@ -5,6 +5,8 @@ import connectDB from './configs/mongoose.js'
 import connectCloudinary from './configs/cloudinary.js'
 import userRouter from './routes/userRouter.js'
 import productRouter from './routes/productRouter.js'
+import cartRouter from './routes/cartRouter.js'
+import orderRouter from './routes/orderRouter.js'
 
 // App Config
 const app = express()
@@ -19,6 +21,8 @@ app.use(cors())
 // api endpoints
 app.use('/api/user', userRouter)
 app.use('/api/product', productRouter)
+app.use('/api/cart', cartRouter)
+app.use('/api/order', orderRouter)
 app.get('/', (req, res) => {
     res.send("API Working")
 })
@@ -26,3 +30,4 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => 
   console.log(`Server running on address http://localhost:${PORT}`)
 )
+
